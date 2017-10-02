@@ -1,0 +1,1 @@
+module.exports = () => { return 'redhat.users.screener.secret'; };
