@@ -29,10 +29,10 @@ app.use((req, res, next) => {
 });
 
 if (require.main === module) {
-  mongoose.connect('mongodb://localhost/users');
-  app.listen(8000, () => {
-    logger.info('Listening at http://localhost:8000');
-  });
+  mongoose.connect('mongodb://localhost:27017/users');
+  const port = 9001;
+  const host = '0.0.0.0';
+  app.listen(port, host, () => { logger.info('Listening at http://localhost:8000'); });
 }
 
 module.exports = app;
