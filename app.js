@@ -1,16 +1,15 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const cors = require('cors');
-const bodyParser = require('body-parser');
-const morgan = require('morgan');
-const path = require('path');
-const marked = require('marked');
-const fs = require('fs');
-const logger = require('winston');
-const routes = require('./routes');
-const authenticate = require('./middleware/auth');
+const express = require('express')
+  , mongoose = require('mongoose')
+  , cors = require('cors')
+  , bodyParser = require('body-parser')
+  , morgan = require('morgan')
+  , path = require('path')
+  , logger = require('winston')
+  , routes = require('./routes');
+//   , authenticate = require('./middleware/auth');
 
 const app = express();
+
 app.use(cors());
 app.use(bodyParser.json());
 app.use(morgan('dev'));
@@ -32,7 +31,7 @@ app.use((req, res, next) => {
 if (require.main === module) {
   mongoose.connect('mongodb://localhost/users');
   app.listen(8000, () => {
-    logger.info('Listening at http://localhost:8000 - see here for API docs');
+    logger.info('Listening at http://localhost:8000');
   });
 }
 
